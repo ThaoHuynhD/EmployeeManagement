@@ -1,7 +1,6 @@
 var employeeList = [];
-var jsonvalue = localStorage.getItem("employeeList");
 var id, account, name, email, pass, dayOnBoard, salary, job, hour;
-let nextId;
+var jsonvalue = localStorage.getItem("employeeList");
 if (jsonvalue !== null) {
     employeeList = JSON.parse(jsonvalue);
     renderList(employeeList);
@@ -19,7 +18,6 @@ function addData() {
     var isValid = checkAllInput(employee);
     if (isValid == 0) return;
     employeeList.push(employee);
-    console.log("employee: ", employee);
     setObjectId();
     var jsonvalue = JSON.stringify(employeeList);
     localStorage.setItem("employeeList", jsonvalue);
@@ -29,9 +27,9 @@ function updateData() {
     id = document.getElementById("idNV").value;
     var employee = new Employee(id, account, name, email, pass, dayOnBoard, salary, job, hour);
     checkIdValid(employee.id);
-    var index = getIndex(id, employeeList);
     var isValid = checkAllInput(employee);
     if (isValid == 0) return;
+    var index = getIndex(id, employeeList);
     employeeList[index] = employee;
     jsonvalue = JSON.stringify(employeeList);
     localStorage.setItem("employeeList", jsonvalue);
@@ -41,6 +39,7 @@ function showDataOnForm(id) {
     var index = getIndex(id, employeeList);
     var employee = employeeList[index];
     checkIdValid(id);
+    checkAllInput(employee);
     document.getElementById("idNV").value = employee.id;
     document.getElementById("tknv").value = employee.account;
     document.getElementById("name").value = employee.name;
@@ -61,7 +60,6 @@ function deleteData(id) {
 function searchDataWithRank() {
     var searchValue = document.getElementById("searchName").value;
     if (searchValue == "") return;
-    console.log("searchValue: ", searchValue);
     var searchList = [];
     for (i = 0; i < employeeList.length; i++) {
         if (searchValue == calculateRank(employeeList[i])) {

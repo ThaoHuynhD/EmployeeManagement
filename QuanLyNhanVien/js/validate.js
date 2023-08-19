@@ -35,7 +35,6 @@ function checkAccount(employee) {
         & checkIsNumber("tbTKNV", employee.account)
         & checkEmpty("tbTKNV", employee.account);
     setAlertApper("tbTKNV", isValidAccount);
-    console.log("isValidAccount: ", isValidAccount);
     return isValidAccount;
 }
 function checkName(employee) {
@@ -43,7 +42,6 @@ function checkName(employee) {
         checkIsCharString("tbTen", employee.name)
         & checkEmpty("tbTen", employee.name);
     setAlertApper("tbTen", isValidName);
-    console.log("isValidName: ", isValidName);
     return isValidName;
 }
 function checkEmail(employee) {
@@ -51,7 +49,6 @@ function checkEmail(employee) {
         checkEmpty("tbEmail", employee.email)
         & checkEmailFormat("tbEmail", employee.email);
     setAlertApper("tbEmail", isValidEmail);
-    console.log("isValidEmail: ", isValidEmail);
     return isValidEmail;
 }
 function checkPass(employee) {
@@ -59,7 +56,6 @@ function checkPass(employee) {
         checkEmpty("tbMatKhau", employee.pass)
         & checkPassFormat("tbMatKhau", employee.pass);
     setAlertApper("tbMatKhau", isValidPass);
-    console.log("isValidPass: ", isValidPass);
     return isValidPass;
 }
 function checkDate(employee) {
@@ -67,7 +63,6 @@ function checkDate(employee) {
         checkEmpty("tbNgay", employee.dayOnBoard)
         & checkDateFormat("tbNgay", employee.dayOnBoard);
     setAlertApper("tbNgay", isValidDate);
-    console.log("isValidDate: ", isValidDate);
     return isValidDate;
 }
 function checkSalary(employee) {
@@ -76,14 +71,12 @@ function checkSalary(employee) {
         & checkIsNumber("tbLuongCB", employee.salary)
         & checkRank(1000000, 20000000, "tbLuongCB", employee.salary);
     setAlertApper("tbLuongCB", isValidSalary);
-    console.log("isValidSalary: ", isValidSalary);
     return isValidSalary;
 }
 function checkJob(employee) {
     var isValidJob =
         checkEmpty("tbChucVu", employee.job);
     setAlertApper("tbChucVu", isValidJob);
-    console.log("isValidJob: ", isValidJob);
     return isValidJob;
 }
 function checkHour(employee) {
@@ -91,7 +84,6 @@ function checkHour(employee) {
         checkEmpty("tbGiolam", employee.hour)
         & checkRank(80, 200, "tbGiolam", employee.hour);
     setAlertApper("tbGiolam", isValidHour);
-    console.log("isValidHour: ", isValidHour);
     return isValidHour;
 }
 // level 1 -- basic check
